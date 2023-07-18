@@ -116,13 +116,18 @@ class PUYU(BaseAPIModel):
             messages = []
             for item in input:
                 msg = {'text': item['prompt']}
-                if item['role'] == 'user':
+                if item['role'] == 'HUMAN':
                     msg['role'] = 'user'
-                elif item['role'] == 'assistant':
+                elif item['role'] == 'BOT':
                     msg['role'] = 'assistant'
                 elif item['role'] == 'SYSTEM':
                     msg['role'] = 'system'
+                elif item['role'] == 'user':
+                    msg['role'] = 'user'
+                elif item['role'] == 'assistant':
+                    msg['role'] = 'assistant'
                 messages.append(msg)
+
 
         max_num_retries = 0
         while max_num_retries < self.retry:
@@ -161,7 +166,7 @@ class PUYU(BaseAPIModel):
                                       str(response['error']))
             max_num_retries += 1
 
-        raise RuntimeError('Calling OpenAI failed after retrying for '
+        raise RuntimeError('Calling PUYU failed after retrying for '
                            f'{max_num_retries} times. Check the logs for '
                            'details.')
 

@@ -13,8 +13,8 @@ with read_base():
 
 api_meta_template = dict(
     round=[
-            dict(role='user', api_role='user'),
-            dict(role='assistant', api_role='assistant', generate=True),
+            dict(role='HUMAN', api_role='user'),
+            dict(role='BOT', api_role='assistant', generate=True),
     ],
 )
 
