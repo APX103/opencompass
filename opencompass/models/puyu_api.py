@@ -1,7 +1,5 @@
 import json
-import os
 from concurrent.futures import ThreadPoolExecutor
-from threading import Lock
 from typing import Dict, List, Optional, Union
 
 import requests
