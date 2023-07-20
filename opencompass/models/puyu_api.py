@@ -159,7 +159,7 @@ class PUYU(BaseAPIModel):
                 self.logger.error('JsonDecode error, got',
                                   str(raw_response.content))
             try:
-                return response['choices'][0]['text'].strip()
+                return response['data']['choices'][0]['text'].strip()
             except KeyError:
                 if 'error' in response:
                     self.logger.error('Find error message in response: ',
