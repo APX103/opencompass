@@ -61,7 +61,7 @@ class Mock(BaseAPIModel):
                 elif item['role'] == 'assistant':
                     msg['role'] = 'assistant'
                 messages.append(msg)
-        return ["Mock Result"]
+        return ["ok"]
             
 
     def get_token_len(self, prompt: str) -> int:

@@ -14,7 +14,7 @@ class LijialunDataset(BaseDataset):
     @staticmethod
     def load(path: str, name: str):
         dataset = DatasetDict()
-        for split in ['dev']:
+        for split in ['test']:
             raw_data = []
             filename = osp.join(path, split, f'{name}_{split}.csv')
             with open(filename, encoding='utf-8') as f:
@@ -23,5 +23,5 @@ class LijialunDataset(BaseDataset):
                     print("row: ", row)
                     raw_data.append({'input': [row], 'target': ["ok"]})
             dataset[split] = Dataset.from_list(raw_data)
-        dataset['test'] = Dataset.from_list([{'input': ['1'], 'target': ["2"]}])
+        dataset['dev'] = Dataset.from_list([{'input': ['ok'], 'target': ["ok"]}])
         return dataset
